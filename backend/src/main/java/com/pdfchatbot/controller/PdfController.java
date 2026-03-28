@@ -31,10 +31,7 @@ public class PdfController {
 
     /**
      * Upload et traitement d'un fichier PDF.
-     *
-     * Accepte un fichier multipart/form-data, extrait le texte
-     * et stocke le document pour utilisation par le chatbot.
-     *
+    
      * @param file Fichier PDF envoyé par le frontend
      * @return PdfDocument avec les métadonnées et confirmation de succès
      */
@@ -74,11 +71,7 @@ public class PdfController {
         }
     }
 
-    /**
-     * Récupère la liste de tous les documents PDF uploadés.
-     *
-     * @return Liste des documents avec leurs métadonnées
-     */
+    
     @GetMapping("/documents")
     public ResponseEntity<List<PdfDocument>> getAllDocuments() {
         List<PdfDocument> documents = pdfService.getAllDocuments();
@@ -86,12 +79,7 @@ public class PdfController {
         return ResponseEntity.ok(documents);
     }
 
-    /**
-     * Récupère un document PDF par son identifiant.
-     *
-     * @param id Identifiant unique du document
-     * @return PdfDocument ou 404 si non trouvé
-     */
+   
     @GetMapping("/{id}")
     public ResponseEntity<?> getDocument(@PathVariable String id) {
         PdfDocument document = pdfService.getDocument(id);
@@ -105,12 +93,7 @@ public class PdfController {
         return ResponseEntity.ok(document);
     }
 
-    /**
-     * Supprime un document PDF par son identifiant.
-     *
-     * @param id Identifiant du document à supprimer
-     * @return Confirmation de suppression ou 404
-     */
+   
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteDocument(@PathVariable String id) {
         boolean deleted = pdfService.deleteDocument(id);
