@@ -15,37 +15,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-/**
- * Service responsable de la gestion des documents PDF.
- *
- * Fonctionnalités :
- * - Upload et stockage en mémoire des documents PDF
- * - Extraction du texte via Apache PDFBox
- * - Récupération des documents par identifiant
- *
- * Note : Pour un projet en production, utiliser une base de données
- * ou un vector store (ex: Pinecone, Chroma) au lieu du stockage en mémoire.
- */
+
 @Slf4j
 @Service
 public class PdfService {
 
-    /**
-     * Stockage en mémoire des documents PDF.
-     * Clé = identifiant unique (UUID), Valeur = document PDF
-     *
-     * Pour la production : remplacer par une base de données ou vector store
-     */
+   
     private final Map<String, PdfDocument> documentStore = new HashMap<>();
 
-    /**
-     * Traite un fichier PDF uploadé : extraction du texte et stockage.
-     *
-     * @param file Fichier PDF reçu du frontend
-     * @return PdfDocument avec le texte extrait et les métadonnées
-     * @throws IOException Si le fichier ne peut pas être lu
-     * @throws IllegalArgumentException Si le fichier n'est pas un PDF valide
-     */
+   
     public PdfDocument processPdf(MultipartFile file) throws IOException {
         // Validation du type de fichier
         validatePdfFile(file);
@@ -73,16 +51,7 @@ public class PdfService {
         return document;
     }
 
-    /**
-     * Extrait le texte d'un fichier PDF en utilisant Apache PDFBox.
-     *
-     * PDFBox parcourt toutes les pages du document et extrait
-     * le texte brut de chaque page.
-     *
-     * @param file Fichier PDF à analyser
-     * @return Texte extrait du PDF
-     * @throws IOException Si l'extraction échoue
-     */
+    
     private String extractTextFromPdf(MultipartFile file) throws IOException {
         // PDFBox 3.x : Loader.loadPDF(byte[]) remplace PDDocument.load(InputStream)
         try (PDDocument pdDocument = Loader.loadPDF(file.getBytes())) {
@@ -103,13 +72,7 @@ public class PdfService {
         }
     }
 
-    /**
-     * Nettoie le texte extrait du PDF.
-     * Supprime les espaces multiples et normalise les sauts de ligne.
-     *
-     * @param text Texte brut extrait
-     * @return Texte nettoyé
-     */
+    
     private String cleanExtractedText(String text) {
         if (text == null) return "";
 
@@ -119,12 +82,7 @@ public class PdfService {
                 .trim();
     }
 
-    /**
-     * Valide que le fichier est bien un PDF non vide.
-     *
-     * @param file Fichier à valider
-     * @throws IllegalArgumentException Si le fichier est invalide
-     */
+    
     private void validatePdfFile(MultipartFile file) {
         if (file.isEmpty()) {
             throw new IllegalArgumentException("Le fichier PDF est vide");
@@ -136,31 +94,17 @@ public class PdfService {
         }
     }
 
-    /**
-     * Récupère un document PDF par son identifiant.
-     *
-     * @param documentId Identifiant unique du document
-     * @return PdfDocument correspondant, ou null si non trouvé
-     */
+    
     public PdfDocument getDocument(String documentId) {
         return documentStore.get(documentId);
     }
 
-    /**
-     * Récupère la liste de tous les documents PDF stockés.
-     *
-     * @return Liste de tous les documents
-     */
+    
     public List<PdfDocument> getAllDocuments() {
         return List.copyOf(documentStore.values());
     }
 
-    /**
-     * Supprime un document du stockage.
-     *
-     * @param documentId Identifiant du document à supprimer
-     * @return true si supprimé, false si non trouvé
-     */
+    
     public boolean deleteDocument(String documentId) {
         return documentStore.remove(documentId) != null;
     }
