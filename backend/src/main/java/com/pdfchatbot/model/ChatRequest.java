@@ -18,17 +18,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ChatRequest {
 
-    /**
-     * Question posée par l'utilisateur.
-     * Ne peut pas être vide.
-     */
+   
     @NotBlank(message = "La question ne peut pas être vide")
     private String question;
 
-    /**
-     * Identifiant du document PDF à analyser.
-     * Obligatoire pour que le chatbot ait un contexte.
-     */
+    
     @NotNull(message = "L'identifiant du document est obligatoire")
     private String documentId;
 }
