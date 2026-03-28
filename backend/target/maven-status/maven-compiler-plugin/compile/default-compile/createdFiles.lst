@@ -1,0 +1,16 @@
+com\pdfchatbot\service\ChatService.class
+com\pdfchatbot\controller\ChatController.class
+com\pdfchatbot\model\ChatMessage.class
+com\pdfchatbot\model\ChatResponse$ChatResponseBuilder.class
+com\pdfchatbot\model\ChatMessage$Role.class
+com\pdfchatbot\model\ChatRequest$ChatRequestBuilder.class
+com\pdfchatbot\service\PdfService.class
+com\pdfchatbot\PdfChatbotApplication.class
+com\pdfchatbot\model\ChatMessage$ChatMessageBuilder.class
+com\pdfchatbot\model\PdfDocument$PdfDocumentBuilder.class
+com\pdfchatbot\model\PdfDocument.class
+com\pdfchatbot\config\AiConfig.class
+com\pdfchatbot\config\CorsConfig.class
+com\pdfchatbot\controller\PdfController.class
+com\pdfchatbot\model\ChatResponse.class
+com\pdfchatbot\model\ChatRequest.class

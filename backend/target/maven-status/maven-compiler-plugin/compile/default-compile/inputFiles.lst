@@ -1,0 +1,11 @@
+C:\pdf-chatbot-fixed\backend\src\main\java\com\pdfchatbot\config\AiConfig.java
+C:\pdf-chatbot-fixed\backend\src\main\java\com\pdfchatbot\config\CorsConfig.java
+C:\pdf-chatbot-fixed\backend\src\main\java\com\pdfchatbot\controller\ChatController.java
+C:\pdf-chatbot-fixed\backend\src\main\java\com\pdfchatbot\controller\PdfController.java
+C:\pdf-chatbot-fixed\backend\src\main\java\com\pdfchatbot\model\ChatMessage.java
+C:\pdf-chatbot-fixed\backend\src\main\java\com\pdfchatbot\model\ChatRequest.java
+C:\pdf-chatbot-fixed\backend\src\main\java\com\pdfchatbot\model\ChatResponse.java
+C:\pdf-chatbot-fixed\backend\src\main\java\com\pdfchatbot\model\PdfDocument.java
+C:\pdf-chatbot-fixed\backend\src\main\java\com\pdfchatbot\PdfChatbotApplication.java
+C:\pdf-chatbot-fixed\backend\src\main\java\com\pdfchatbot\service\ChatService.java
+C:\pdf-chatbot-fixed\backend\src\main\java\com\pdfchatbot\service\PdfService.java
